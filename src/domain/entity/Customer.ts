@@ -1,33 +1,3 @@
-/**
- * Aqui é sobre expressividade
- * A modelagem do dominio expressa a ideia do negócio e não apenas setters e getters
- */
-
-
-// #Aula sobre Consistência constante em primeiro lugar:
-// objeto com valores em branco ou vazio, é errado, pois se caracteriza inconsistência de estado
-// por isso não deve ser possível instanciar um objeto com valores de instância inconsistentes
-
-
-// #Aula Princípio de autovalidação:
-// Uma entidade por padrão ela sempre deve se autovalidar
-// exemplo do metodo validate
-
-
-// #Aula Entidade vs ORM:
-// Essa entidade é uma entidade de negócio e não de persistência por isso é diferente da ORM
-// São contextos diferentes
-/*
-
-# Entity - Complexidade de negócio
-  - Entity
-  -- customer.ts (regras de negocio)
-
-# Infra - Mundo externo - Complexidade acidental
-  - Entity / Model
-  -- customer.ts (get, set)
-
-*/
 import type Address from "./Address.js";
 
 class Customer {
