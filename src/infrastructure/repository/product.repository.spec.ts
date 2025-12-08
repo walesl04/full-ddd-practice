@@ -67,7 +67,7 @@ describe('Product repository test', () => {
 
     expect(foundProduct).toStrictEqual(new Product("1", "Product 01", 100));  
   })
-  it('should find a product', async () => {
+  it('should find all product', async () => {
     const productRepository = new ProductRepository();
     const product1 = new Product("1", "Product 01", 100);
     const product2 = new Product("2", "Product 02", 200);
