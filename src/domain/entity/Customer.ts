@@ -1,4 +1,6 @@
-import type Address from "./Address.js";
+import EventDispatcherInterface from "../event/@shared/event-dispatcher.interface";
+import CustomerChangeAddressEvent from "../event/customer/customer-change-address.event";
+import type Address from "./Address";
 
 class Customer {
   private _id: string;
@@ -6,10 +8,12 @@ class Customer {
   private _address!: Address;
   private _active: boolean = true;
   private _rewardPoints: number = 0;
+  private _dispatcher: EventDispatcherInterface;
 
-  constructor(id: string, name: string) {
+  constructor(id: string, name: string, dispatcher?: EventDispatcherInterface) {
     this._id = id;
     this._name = name;
+    this._dispatcher = dispatcher;
     this.validate();
   }
 
@@ -40,6 +44,18 @@ class Customer {
 
   set Address(address: Address) {
     this._address = address;
+  }
+
+  changeAddress(address: Address) {
+    this._address = address;
+    if (this._dispatcher) {
+      const customerChangeAddressEvent = new CustomerChangeAddressEvent({
+        id: this.id,
+        name: this.name,
+        address
+      });
+      this._dispatcher.notify(customerChangeAddressEvent);
+    }
   }
 
   get Address() {
