@@ -1,6 +1,6 @@
-import EventDispatcherInterface from "../event/@shared/event-dispatcher.interface";
-import CustomerChangeAddressEvent from "../event/customer/customer-change-address.event";
-import type Address from "./Address";
+import EventDispatcherInterface from "../../@shared/event/event-dispatcher.interface";
+import CustomerChangeAddressEvent from "../event/customer-change-address.event";
+import type Address from "../value-object/Address";
 
 class Customer {
   private _id: string;

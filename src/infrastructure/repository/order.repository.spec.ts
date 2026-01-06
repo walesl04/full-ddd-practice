@@ -6,11 +6,11 @@ import ProductModel from "../db/sequelize/model/product.model";
 import CustomerRepository from "./Customer.repository";
 import ProductRepository from "./Product.repository";
 import OrderRepository from "./OrderRepository.repository";
-import Customer from "../../domain/entity/Customer";
-import Address from "../../domain/entity/Address";
-import Product from "../../domain/entity/Product";
-import OrderItem from "../../domain/entity/OrderItem";
-import Order from "../../domain/entity/Order";
+import Address from "../../domain/customer/value-object/Address";
+import OrderItem from "../../domain/checkout/entity/OrderItem";
+import Order from "../../domain/checkout/entity/Order";
+import Customer from "../../domain/customer/entity/Customer";
+import Product from "../../domain/product/entity/Product";
 
 async function auxRepoCreateOrder() {
   const customerRespository = new CustomerRepository()
